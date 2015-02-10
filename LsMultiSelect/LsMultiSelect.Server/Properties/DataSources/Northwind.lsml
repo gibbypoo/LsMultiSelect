@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ServiceApplication
+  Name="LightSwitchServiceApplication" xmlns="http://schemas.microsoft.com/LightSwitch/2010/xaml/model">
+  <ServiceApplication.Attributes>
+    <Partial />
+  </ServiceApplication.Attributes>
+  <EntityContainer
+    Name="Northwind"
+    DataProvider="AstoriaDataProvider">
+    <EntityContainer.Attributes>
+      <Partial
+        IsPrimary="True" />
+    </EntityContainer.Attributes>
+    <SubmitOperation
+      Name="SaveChanges" />
+  </EntityContainer>
+  <DataService
+    Name="NorthwindDataService"
+    EntityContainer="Northwind">
+    <DataService.Attributes>
+      <CsdlEntityContainer
+        Format="Json"
+        Name="NorthwindEntities"
+        Namespace="NorthwindModel" />
+      <Partial
+        IsPrimary="True" />
+    </DataService.Attributes>
+    <DataService.ConnectionProperties>
+      <ConnectionProperty
+        Name="ConnectionStringGuid"
+        Value="402ce3b6-d4ee-4695-bbdf-8026254441ab" />
+      <ConnectionProperty
+        Name="ProjectMetadata"
+        Value="Northwind" />
+    </DataService.ConnectionProperties>
+  </DataService>
+</ServiceApplication>

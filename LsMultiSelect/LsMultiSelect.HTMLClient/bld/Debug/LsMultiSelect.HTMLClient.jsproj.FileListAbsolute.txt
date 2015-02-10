@@ -1,0 +1,2 @@
+C:\Users\Tim\Documents\Visual Studio 2013\Projects\LsMultiSelect\LsMultiSelect\LsMultiSelect.HTMLClient\bin\Debug\LSResourceGeneratorsTask.mcs
+C:\Users\Tim\Documents\Visual Studio 2013\Projects\LsMultiSelect\LsMultiSelect\LsMultiSelect.HTMLClient\bin\Debug\LSClientCodeGeneratorsTask.mcs

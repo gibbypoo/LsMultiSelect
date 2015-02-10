@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<ModelDocumentManifest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Documents>
+    <Document FullPath="C:\Users\Tim\Documents\Visual Studio 2013\Projects\LsMultiSelect\LsMultiSelect\LsMultiSelect.HTMLClient\Properties\Client.lsml" Checksum="225D81A5E687CFD1CC0C87BBC6E8F78B4C4F4C3645121B0D6E24F0A3659BEC24" />
+    <Document FullPath="C:\Users\Tim\Documents\Visual Studio 2013\Projects\LsMultiSelect\LsMultiSelect\LsMultiSelect.HTMLClient\Properties\Proxies.lsml" Checksum="9287CA6C404EB14330931F292EF2517198B238C97A7E7992DC57665BD6BD869F" />
+    <Document FullPath="C:\Users\Tim\Documents\Visual Studio 2013\Projects\LsMultiSelect\LsMultiSelect\LsMultiSelect.HTMLClient\Screens\BrowseCustomers.lsml" Checksum="187A5B4550495007E6B3272F33969A9FD76353D85978B716B64BB56C0DFF244D" />
+  </Documents>
+</ModelDocumentManifest>

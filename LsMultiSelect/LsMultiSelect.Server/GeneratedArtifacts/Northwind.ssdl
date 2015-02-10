@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="NorthwindStore" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="NorthwindStore">
+    <EntitySet Name="Customers" EntityType="NorthwindStore.Customer" store:Type="Tables" Schema="dbo" Table="Customer" />
+    <EntitySet Name="Employees" EntityType="NorthwindStore.Employee" store:Type="Tables" Schema="dbo" Table="Employee" />
+    <EntitySet Name="Products" EntityType="NorthwindStore.Product" store:Type="Tables" Schema="dbo" Table="Product" />
+    <AssociationSet Name="FK_Employees_Employees" Association="NorthwindStore.FK_Employees_Employees">
+      <End Role="Employees" EntitySet="Employees" />
+      <End Role="Employees1" EntitySet="Employees" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="CustomerID" />
+    </Key>
+    <Property Name="CustomerID" Type="nchar" Nullable="false" MaxLength="5" />
+    <Property Name="CompanyName" Type="nvarchar" Nullable="false" MaxLength="40" />
+    <Property Name="ContactName" Type="nvarchar" MaxLength="30" />
+    <Property Name="ContactTitle" Type="nvarchar" MaxLength="30" />
+    <Property Name="Address" Type="nvarchar" MaxLength="60" />
+    <Property Name="City" Type="nvarchar" MaxLength="15" />
+    <Property Name="Region" Type="nvarchar" MaxLength="15" />
+    <Property Name="PostalCode" Type="nvarchar" MaxLength="10" />
+    <Property Name="Country" Type="nvarchar" MaxLength="15" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="24" />
+    <Property Name="Fax" Type="nvarchar" MaxLength="24" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="EmployeeID" />
+    </Key>
+    <Property Name="EmployeeID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="LastName" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="FirstName" Type="nvarchar" Nullable="false" MaxLength="10" />
+    <Property Name="Title" Type="nvarchar" MaxLength="30" />
+    <Property Name="TitleOfCourtesy" Type="nvarchar" MaxLength="25" />
+    <Property Name="BirthDate" Type="datetime" />
+    <Property Name="HireDate" Type="datetime" />
+    <Property Name="Address" Type="nvarchar" MaxLength="60" />
+    <Property Name="City" Type="nvarchar" MaxLength="15" />
+    <Property Name="Region" Type="nvarchar" MaxLength="15" />
+    <Property Name="PostalCode" Type="nvarchar" MaxLength="10" />
+    <Property Name="Country" Type="nvarchar" MaxLength="15" />
+    <Property Name="HomePhone" Type="nvarchar" MaxLength="24" />
+    <Property Name="Extension" Type="nvarchar" MaxLength="4" />
+    <Property Name="Photo" Type="varbinary(max)" MaxLength="Max" />
+    <Property Name="Notes" Type="nvarchar(max)" />
+    <Property Name="PhotoPath" Type="nvarchar" MaxLength="255" />
+    <Property Name="ReportsTo" Type="int" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Name="ProductID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ProductName" Type="nvarchar" Nullable="false" MaxLength="40" />
+    <Property Name="SupplierID" Type="int" />
+    <Property Name="CategoryID" Type="int" />
+    <Property Name="QuantityPerUnit" Type="nvarchar" MaxLength="20" />
+    <Property Name="UnitPrice" Type="decimal" Precision="19" Scale="4" />
+    <Property Name="UnitsInStock" Type="smallint" />
+    <Property Name="UnitsOnOrder" Type="smallint" />
+    <Property Name="ReorderLevel" Type="smallint" />
+    <Property Name="Discontinued" Type="bit" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Employees_Employees">
+    <End Role="Employees" Type="NorthwindStore.Employee" Multiplicity="0..1">
+      <OnDeleteAnnotation Action="Restrict" xmlns="http://schemas.microsoft.com/LightSwitch/2013/edm/annotations" />
+    </End>
+    <End Role="Employees1" Type="NorthwindStore.Employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employees">
+        <PropertyRef Name="EmployeeID" />
+      </Principal>
+      <Dependent Role="Employees1">
+        <PropertyRef Name="ReportsTo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

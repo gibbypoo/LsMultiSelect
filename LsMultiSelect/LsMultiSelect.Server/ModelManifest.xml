@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<ModelDocumentManifest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Documents>
+    <Document FullPath="C:\Users\Tim\Documents\Visual Studio 2013\Projects\LsMultiSelect\LsMultiSelect\LsMultiSelect.Server\Properties\Service.lsml" Checksum="D4F96F8E71C85A20DEF4D477A77198C37364590B4CF76596ADAF93E9B7113B1F" />
+    <Document FullPath="C:\Users\Tim\Documents\Visual Studio 2013\Projects\LsMultiSelect\LsMultiSelect\LsMultiSelect.Server\DataSources\Northwind\Customers.lsml" Checksum="0BED10DB68DCDFE0604E5CFA2ADB9293D8EF2DF7CE8ED65C88900A3B97A7F36C" />
+    <Document FullPath="C:\Users\Tim\Documents\Visual Studio 2013\Projects\LsMultiSelect\LsMultiSelect\LsMultiSelect.Server\DataSources\Northwind\Employees.lsml" Checksum="42384216E2926ADD3DD272F2359A43A0CAA573A02ED9EF77F44999478B443AA2" />
+    <Document FullPath="C:\Users\Tim\Documents\Visual Studio 2013\Projects\LsMultiSelect\LsMultiSelect\LsMultiSelect.Server\DataSources\Northwind\Products.lsml" Checksum="ACDC1B12707395D0DA7E4E1525B2DCABCD882D7EFBEBA84EDA49D728E3077CE6" />
+    <Document FullPath="C:\Users\Tim\Documents\Visual Studio 2013\Projects\LsMultiSelect\LsMultiSelect\LsMultiSelect.Server\Properties\DataSources\Northwind.lsml" Checksum="BB24EEC55DA1F52E6B86C9C17A4A546F9153076E648F0AD09675A6E56A13F76E" />
+  </Documents>
+</ModelDocumentManifest>

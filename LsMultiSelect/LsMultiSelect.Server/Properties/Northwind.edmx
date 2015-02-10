@@ -1,0 +1,85 @@
+﻿<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx">
+  <edmx:DataServices m:DataServiceVersion="1.0" m:MaxDataServiceVersion="3.0" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata">
+    <Schema Namespace="NorthwindModel" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+      <EntityType Name="Customer">
+        <Key>
+          <PropertyRef Name="CustomerID" />
+        </Key>
+        <Property Name="CustomerID" Type="Edm.String" Nullable="false" MaxLength="5" FixedLength="true" Unicode="true" />
+        <Property Name="CompanyName" Type="Edm.String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+        <Property Name="ContactName" Type="Edm.String" MaxLength="30" FixedLength="false" Unicode="true" />
+        <Property Name="ContactTitle" Type="Edm.String" MaxLength="30" FixedLength="false" Unicode="true" />
+        <Property Name="Address" Type="Edm.String" MaxLength="60" FixedLength="false" Unicode="true" />
+        <Property Name="City" Type="Edm.String" MaxLength="15" FixedLength="false" Unicode="true" />
+        <Property Name="Region" Type="Edm.String" MaxLength="15" FixedLength="false" Unicode="true" />
+        <Property Name="PostalCode" Type="Edm.String" MaxLength="10" FixedLength="false" Unicode="true" />
+        <Property Name="Country" Type="Edm.String" MaxLength="15" FixedLength="false" Unicode="true" />
+        <Property Name="Phone" Type="Edm.String" MaxLength="24" FixedLength="false" Unicode="true" />
+        <Property Name="Fax" Type="Edm.String" MaxLength="24" FixedLength="false" Unicode="true" />
+      </EntityType>
+      <EntityType Name="Employee">
+        <Key>
+          <PropertyRef Name="EmployeeID" />
+        </Key>
+        <Property Name="EmployeeID" Type="Edm.Int32" Nullable="false" p6:StoreGeneratedPattern="Identity" xmlns:p6="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+        <Property Name="LastName" Type="Edm.String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+        <Property Name="FirstName" Type="Edm.String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+        <Property Name="Title" Type="Edm.String" MaxLength="30" FixedLength="false" Unicode="true" />
+        <Property Name="TitleOfCourtesy" Type="Edm.String" MaxLength="25" FixedLength="false" Unicode="true" />
+        <Property Name="BirthDate" Type="Edm.DateTime" />
+        <Property Name="HireDate" Type="Edm.DateTime" />
+        <Property Name="Address" Type="Edm.String" MaxLength="60" FixedLength="false" Unicode="true" />
+        <Property Name="City" Type="Edm.String" MaxLength="15" FixedLength="false" Unicode="true" />
+        <Property Name="Region" Type="Edm.String" MaxLength="15" FixedLength="false" Unicode="true" />
+        <Property Name="PostalCode" Type="Edm.String" MaxLength="10" FixedLength="false" Unicode="true" />
+        <Property Name="Country" Type="Edm.String" MaxLength="15" FixedLength="false" Unicode="true" />
+        <Property Name="HomePhone" Type="Edm.String" MaxLength="24" FixedLength="false" Unicode="true" />
+        <Property Name="Extension" Type="Edm.String" MaxLength="4" FixedLength="false" Unicode="true" />
+        <Property Name="Photo" Type="Edm.Binary" MaxLength="Max" FixedLength="false" />
+        <Property Name="Notes" Type="Edm.String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        <Property Name="ReportsTo" Type="Edm.Int32" />
+        <Property Name="PhotoPath" Type="Edm.String" MaxLength="255" FixedLength="false" Unicode="true" />
+        <NavigationProperty Name="Employees1" Relationship="NorthwindModel.FK_Employees_Employees" ToRole="Employees1" FromRole="Employees" />
+        <NavigationProperty Name="Employee1" Relationship="NorthwindModel.FK_Employees_Employees" ToRole="Employees" FromRole="Employees1" />
+      </EntityType>
+      <EntityType Name="Product">
+        <Key>
+          <PropertyRef Name="ProductID" />
+        </Key>
+        <Property Name="ProductID" Type="Edm.Int32" Nullable="false" p6:StoreGeneratedPattern="Identity" xmlns:p6="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+        <Property Name="ProductName" Type="Edm.String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+        <Property Name="SupplierID" Type="Edm.Int32" />
+        <Property Name="CategoryID" Type="Edm.Int32" />
+        <Property Name="QuantityPerUnit" Type="Edm.String" MaxLength="20" FixedLength="false" Unicode="true" />
+        <Property Name="UnitPrice" Type="Edm.Decimal" Precision="19" Scale="4" />
+        <Property Name="UnitsInStock" Type="Edm.Int16" />
+        <Property Name="UnitsOnOrder" Type="Edm.Int16" />
+        <Property Name="ReorderLevel" Type="Edm.Int16" />
+        <Property Name="Discontinued" Type="Edm.Boolean" Nullable="false" />
+      </EntityType>
+      <Association Name="FK_Employees_Employees">
+        <End Type="NorthwindModel.Employee" Role="Employees" Multiplicity="0..1" />
+        <End Type="NorthwindModel.Employee" Role="Employees1" Multiplicity="*" />
+        <ReferentialConstraint>
+          <Principal Role="Employees">
+            <PropertyRef Name="EmployeeID" />
+          </Principal>
+          <Dependent Role="Employees1">
+            <PropertyRef Name="ReportsTo" />
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+    </Schema>
+    <Schema Namespace="ODataWebV3.Northwind.Model" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+      <EntityContainer Name="NorthwindEntities" m:IsDefaultEntityContainer="true" p6:LazyLoadingEnabled="true" xmlns:p6="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+        <EntitySet Name="Customers" EntityType="NorthwindModel.Customer" />
+        <EntitySet Name="Employees" EntityType="NorthwindModel.Employee" />
+        <EntitySet Name="Products" EntityType="NorthwindModel.Product" />
+        <AssociationSet Name="FK_Employees_Employees" Association="NorthwindModel.FK_Employees_Employees">
+          <End Role="Employees" EntitySet="Employees" />
+          <End Role="Employees1" EntitySet="Employees" />
+        </AssociationSet>
+      </EntityContainer>
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>
